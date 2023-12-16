@@ -9,7 +9,7 @@ class MarketplaceModel(models.Model):
 
     title = models.CharField("Titulo", max_length=100)
     description = models.TextField("Descripcion", blank=True)
-    price = models.DecimalField("Precio", max_digits=6, decimal_places=2, blank=True)
+    price = models.DecimalField("Precio", max_digits=10, decimal_places=2, blank=True)
     location = models.CharField("Domicilio", max_length=100, blank=True)
     property_type = models.CharField("Tipo de propiedad", max_length=50, choices=PROPERTY_TYPE, blank=True)
     bedrooms = models.IntegerField("Habitaciones", blank=True)
