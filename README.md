@@ -1,7 +1,8 @@
 # Django rest task
 Aplicación del tipo RESTful con los recursos de Python. Está basado en la funciones CRUD.
 
-Requerimientos:
+### Requerimientos:
+
 El archivo requirements.txt contiene los recursos necesarios para crear el proyecto.
 
 Django 4.2.7
