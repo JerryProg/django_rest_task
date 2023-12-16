@@ -34,7 +34,7 @@ class MarketpAPIView(APIView):
     def delete(self, request, pk, format=None):
         item = get_object_or_404(MarketplaceModel.objects.all(), pk=pk)
         item.delete()
-        response = {"response" : "success el elemento con id f{pk} ha sido borrado"}
+        response = {"response" : "success, el elemento ha sido borrado"}
         return Response(response, status=status.HTTP_204_NO_CONTENT)
     
 
