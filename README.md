@@ -20,7 +20,7 @@ Creación de usuario: Debemos crear un usuario con el comando
 
 Ingresamos los datos que nos pide e ingresamos al panel de administración de django. Se pueden crear los usuarios también en el panel.
 
-img createuser django
+![Crear user en django](/readme_img/django_create_user.png)
 
 Utilizamos la API de pruebas llamada *Postman* para realizar las pruebas para cada uno de los principales métodos (GET, POST, PUT, DELETE).
 Debemos escoger en la ventana de la api el *método* y escribir la *url*.
@@ -31,13 +31,11 @@ Utiliza el método POST para crear el elemento. Tenemos que agregar en la pesta�
 los nombres deben **coincidir** con los que asignamos en el modelo creado en django.
 
 
-foto de postman con body
-
 URL: http://localhost:8000/api/marketplace/create/
 
 Resultado.
 
-img create postman
+![Crear user en django](/readme_img/postman_create.png)
 
 ### READ.
 
@@ -45,11 +43,11 @@ Utiliza el método GET para crear el elemento. Tenemos dos opciones; ver una lis
 
 URL: http://localhost:8000/api/marketplace/
 
-img postman list
+![Crear user en django](/readme_img/postman_list.png)
 
 URL: http://localhost:8000/api/marketplace/pk/
 
-img postman retrieve
+![Crear user en django](/readme_img/postman_retrieve.png)
 
 #### Tenemos que sustituir por el valor del pk de las urls por el valor llamado id.
 
@@ -60,7 +58,7 @@ los nombres deben **coincidir** con los que asignamos en el modelo creado en dja
 
 URL: http://localhost:8000/api/marketplace/pk/update/
 
-img postman update
+![Crear user en django](/readme_img/postman_update.png)
 
 #### Tenemos que sustituir por el valor del pk de las urls por el valor llamado id.
 
@@ -68,9 +66,15 @@ img postman update
 
 Utiliza el método DELETE para borrar el elemento. Solo debemos agregar el id del elemento que querenmos borrar
 
+![Crear user en django](/readme_img/django_admin_before_delete.png)
+
 URL: http://localhost:8000/api/marketplace/pk/delete/
 
-img postman delete
+![Crear user en django](/readme_img/postman_delete.png)
+
+Panel de admin de django sin el elemento borrado.
+
+![Crear user en django](/readme_img/django_admin_after_delete.png)
 
 #### Tenemos que sustituir por el valor del pk de las urls por el valor llamado id.
 
