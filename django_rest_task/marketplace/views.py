@@ -1,17 +1,13 @@
 from rest_framework.views import APIView, Response, status
-from rest_framework import generics
+from rest_framework import generics, permissions
 from .serializers import MarketplaceSerializer
 from .models import MarketplaceModel
 from django.shortcuts import get_object_or_404
 
 # Create your views here.
 class MarketpAPIView(APIView):
-    def get(self, request):
-        items = MarketplaceModel.objects.all()
-        data = MarketplaceSerializer(items, many=True).data
-        response = { "data" : data }
-        return Response(response, status=status.HTTP_200_OK)
-    
+    permission_classes=[permissions.IsAuthenticated
+                        ]    
     def post(self, request):
         data = request.data
         serializer = MarketplaceSerializer(data=data)
@@ -39,5 +35,10 @@ class MarketpAPIView(APIView):
     
 
 class MarketpRetrieveView(generics.RetrieveAPIView):
+    queryset = MarketplaceModel.objects.all()
+    serializer_class = MarketplaceSerializer
+
+
+class MarketpListView(generics.ListAPIView):
     queryset = MarketplaceModel.objects.all()
     serializer_class = MarketplaceSerializer
