@@ -13,6 +13,8 @@ PosgreSQL psycopg2 2.9.9
 
 Python decouple 3.8
 
+Django oauth toolkit 2.3.0
+
 ### PROCEDIMIENTO PARA REALIZAR LAS PRUEBAS:
 Creación de usuario: Debemos crear un usuario con el comando
 
@@ -22,8 +24,43 @@ Ingresamos los datos que nos pide e ingresamos al panel de administración de dj
 
 ![Crear user en django](/readme_img/django_create_user.png)
 
-Utilizamos la API de pruebas llamada *Postman* para realizar las pruebas para cada uno de los principales métodos (GET, POST, PUT, DELETE).
+### CREAR LA APLICACION EN OAUTH2:
+Para implementar la autenticación y la generación de un token debemos agregar los siguientes datos:
+
+(Debemos ingresar nuestras credenciales en el panel de admin para poder crear la app)
+
+Name: Nombre de la aplicación.
+
+Client Id y Client Secret: Id y password de nuestra app que genera automaticamente cuando creamos la aplicación. Se pueden cambiar.
+
+Client type: Vamos a seleccionar *Public*.
+
+Authorization grant type: Selccionamos *Authorization grant type*
+
+Guardamos para crear la aplicación
+
+![Crear app oauth2](/readme_img/oauth_create_application.png)
+
+### GENERAR EL TOKEN CON POSTMAN:
+Utilizamos la API de pruebas llamada *Postman* para generar el token:
+
+En la pestaña de *Authorization* debemos ingresar las credenciales de username y password con client Id y Client secret *respectivamente*. También seleccionamos Type: *Basic Auth*
+
+![Crear app oauth2](/readme_img/postman_oauth_create_token_1.png)
+
+También en la otra pestaña *Body* agregamos nuestras credenciales para generar el token; seleccionamos la opción *form-data*.
+
+Usamos username y password de nuestro usuario que creamos y agregamos el campo *grant_type* con el valor password.
+
+![Crear app oauth2](/readme_img/postman_oauth_create_token_2.png)
+
+### PRUEBAS CRUD CON POSTMAN:
+Vamos a realizar las pruebas para cada uno de los principales métodos (GET, POST, PUT, DELETE).
 Debemos escoger en la ventana de la api el *método* y escribir la *url*.
+
+Como habilitamos la autenticación con token debemos utilizar el token que generamos y agregarlo en la pestaña *Authorization -> Type* en Postman para poder realizar las pruebas.
+
+![Crear app oauth2](/readme_img/oauth_token_generated.png)
 
 ### CREATE.
 

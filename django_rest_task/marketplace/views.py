@@ -1,13 +1,14 @@
 from rest_framework.views import APIView, Response, status
 from rest_framework import generics, permissions
+from oauth2_provider.contrib.rest_framework import TokenHasReadWriteScope, TokenHasScope
 from .serializers import MarketplaceSerializer
 from .models import MarketplaceModel
 from django.shortcuts import get_object_or_404
 
 # Create your views here.
 class MarketpAPIView(APIView):
-    permission_classes=[permissions.IsAuthenticated
-                        ]    
+    permission_classes=[permissions.IsAuthenticated, TokenHasReadWriteScope]
+    
     def post(self, request):
         data = request.data
         serializer = MarketplaceSerializer(data=data)
